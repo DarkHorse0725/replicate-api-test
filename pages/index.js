@@ -90,16 +90,18 @@ export default function Home() {
 
       {prediction && (
         <>
-          {prediction.output && (
-            <div className="image-wrapper mt-5">
-              <Image
-                fill
-                src={prediction.output[prediction.output.length - 1]}
-                alt="output"
-                sizes="100vw"
-              />
-            </div>
-          )}
+          {prediction.output &&
+            prediction.output.map((row) => {
+              return (
+                <div className="image-wrapper mt-5 flex items-center justify-center">
+                  <img
+                    src={row}
+                    alt="output"
+                    style={{ width: "400px", height: "400px" }}
+                  />
+                </div>
+              );
+            })}
           <p className="py-3 text-sm opacity-50">status: {prediction.status}</p>
         </>
       )}
