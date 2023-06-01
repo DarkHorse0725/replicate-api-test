@@ -62,9 +62,23 @@ export default async function handler(req, res) {
   replicate.predictions
     .create({
       version:
-        "036ae758dd0d0e018bce79a0c59dbdd346652f16833f9f5d093f9df1984a79be",
+        "d55b9f2dcfb156089686b8f767776d5b61b007187a4e1e611881818098100fbb",
       input: {
         image: `data:${mimeType};base64,${req.body.image}`,
+        prompt:
+          "WSJ hedcut-style portraits with a vintage newspaper feel, using a simple yet effective line work to capture subjects unique features. Focus on thick lines, dots, and hatching techniques to suggest contours, facial structure, hair, and accessories. Use stippling to create texture while keeping a minimalist approach. To achieve an old-age newspaper feel, desaturate the colors, limiting them to shades of black and white. Seize the limited color palette to create contrast through shading and bold lines. Apply a texture effect to the portraits and add a halftone filter to create a print-like look. Aim for a WSJ hedcut style while incorporating the vintage printing feel",
+        structure: "hed",
+        num_samples: "4",
+        image_resolution: "512",
+        n_prompt:
+          "Longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, too old, Disfigured, cartoon, blurry, dirty face, dirty teeth, dark background, too fat",
+        a_prompt: "quality, detailed",
+        steps: 25,
+        scale: 7,
+        seed: 1887667748,
+        eta: 0,
+        low_threshold: 100,
+        high_threshold: 200,
       },
       webhook: "https://example.com/your-webhook",
       webhook_events_filter: ["completed"],
